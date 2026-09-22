@@ -10,14 +10,28 @@ function FilterBar() {
   const searchTerm = useTaskStore((state) => state.searchTerm);
   const setSearchTerm = useTaskStore((state) => state.setSearchTerm);
 
+  const selectClass =
+    'rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-700 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500';
+
   return (
-    <div>
+    <div className="mb-4 flex flex-wrap items-center gap-2">
       {['all', 'active', 'completed'].map((f) => (
-        <button key={f} onClick={() => setFilter(f)}>
-          {f}
-        </button>
+        <div className="flex gap-1 rounded-md bg-gray-100 p-1">
+          <button
+            className={`rounded px-3 py-1 text-sm font-medium capitalize ${
+              filter === f
+                ? 'bg-white text-gray-900 shadow-sm'
+                : 'text-gray-500 hover:text-gray-900'
+            }`}
+            key={f}
+            onClick={() => setFilter(f)}
+          >
+            {f}
+          </button>
+        </div>
       ))}
       <select
+        className={selectClass}
         value={categoryFilter}
         onChange={(e) => setCategoryFilter(e.target.value)}
       >
@@ -27,6 +41,7 @@ function FilterBar() {
         <option>Study</option>
       </select>
       <select
+        className={selectClass}
         value={priorityFilter}
         onChange={(e) => setPriorityFilter(e.target.value)}
       >
@@ -40,6 +55,7 @@ function FilterBar() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search tasks..."
+        className="ml-auto rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
       />
     </div>
   );
