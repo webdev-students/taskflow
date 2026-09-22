@@ -55,12 +55,14 @@ function Dashboard() {
     return <p>Could not load starter tasks — you can still add your own.</p>;
 
   return (
-    <div>
-      <h1>Welcome, {user?.name}</h1>
+    <div className="mx-auto max-w-5xl px-6 py-8">
+      <h1 className="mb-6 text-2xl font-semibold text-gray-900">
+        Welcome, {user?.name}
+      </h1>
       <StatsBar />
       <TaskForm onSubmit={handleAddTask} isSaving={mutation.isPending} />
       <FilterBar />
-      <div>
+      <div className="flex flex-col gap-3">
         {filteredTasks.map((task) => (
           <TaskCard key={task.id} task={task} />
         ))}

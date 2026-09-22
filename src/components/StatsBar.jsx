@@ -12,22 +12,22 @@ function StatsBar() {
   const active = total - completed;
   const overdue = tasks.filter(isOverdue).length;
   return (
-    <div>
-      <div>
-        <p>Total</p>
-        <p>{total}</p>
+    <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+        <p className="text-xs font-medium text-gray-500">Total</p>
+        <p className="mt-1 text-2xl font-semibold text-gray-900">{total}</p>
       </div>
-      <div>
-        <p>Completed</p>
-        <p>{completed}</p>
+      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+        <p className="text-xs font-medium text-emerald-600">Completed</p>
+        <p className="mt-1 text-2xl font-semibold text-gray-900">{completed}</p>
       </div>
-      <div>
-        <p>Active</p>
-        <p>{active}</p>
+      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+        <p className="text-xs font-medium text-indigo-600">Active</p>
+        <p className="mt-1 text-2xl font-semibold text-gray-900">{active}</p>
       </div>
-      <div>
-        <p>Overdue</p>
-        <p>{overdue}</p>
+      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+        <p className="text-xs font-medium text-red-600">Overdue</p>
+        <p className="mt-1 text-2xl font-semibold text-gray-900">{overdue}</p>
       </div>
     </div>
   );
